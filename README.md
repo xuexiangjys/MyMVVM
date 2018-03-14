@@ -9,7 +9,7 @@ ARouter + DataBinding + MVVM 的使用演示
 
 ## 如何使用DataBinding实现MVVM框架
 
-###1.在Android Studio上使用，需要在module级别的build.gradle上添加对DataBinding的支持：
+### 1.在Android Studio上使用，需要在module级别的build.gradle上添加对DataBinding的支持：
 
 ```
 android {
@@ -20,7 +20,7 @@ android {
 }
 ```
 
-###2.编写ViewModel
+### 2.编写ViewModel
 
 ViewModel实质是一个POJO类，继承了BaseObservable，通过Bindale注解绑定一个getter，当data属性发生改变在setter中发出通知，可以实现UI的实时刷新。
 
@@ -103,7 +103,7 @@ public class LoginModel extends BaseObservable implements ILoginModel<ILoginView
 }
 ```
 
-###3.编写layout files, 绑定ViewModel
+### 3.编写layout files, 绑定ViewModel
 
 DataBinding的layout files和普通的非DataBinding布局文件是有一些区别的，下面是一个基础的使用了DataBinding的布局文件：
 
@@ -150,7 +150,7 @@ DataBinding的layout files和普通的非DataBinding布局文件是有一些区�
 
 ```
 
-###4.在Activity或者Fragment中进行绑定
+### 4.在Activity或者Fragment中进行绑定
 
 当编写完layout files后， 对应的Activity或者Fragment会自动生成Binding类，例如LoginActivity对应就是ActivityLoginBinding。使用DataBindingUtil进行绑定
 
@@ -178,7 +178,7 @@ public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
 
 ```
 
-###5.最后向layout files中注入ViewModel
+### 5.最后向layout files中注入ViewModel
 使用binding进行绑定，编译器会自动生成相应的setter方法。
 
 ```
@@ -192,7 +192,7 @@ protected void bindViews() {
 ```
 
 
-##最终的效果就是，Activity中没有任何多余代码
+## 最终的效果就是，Activity中没有任何多余代码
 如下就是登录界面Activity的类
 ```
 public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements ILoginView {
