@@ -193,7 +193,7 @@ protected void bindViews() {
 
 
 ## 最终的效果就是，Activity中没有任何多余代码
-如下就是登录界面Activity的类
+如下就是登录界面Activity的类，所有的View都在xml中，逻辑和数据都存放在ViewModel中，Activity专心做UI的渲染工作。
 ```
 public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements ILoginView {
     /**
