@@ -6,7 +6,6 @@ import android.databinding.Bindable;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.xuexiang.mymvvm.BR;
 import com.xuexiang.mymvvm.model.ILoginModel;
-import com.xuexiang.mymvvm.model.IViewModel;
 import com.xuexiang.mymvvm.util.ToastUtil;
 import com.xuexiang.mymvvm.view.ILoginView;
 
@@ -70,7 +69,7 @@ public class LoginModel extends BaseObservable implements ILoginModel<ILoginView
         if ("xuexiang".equals(loginModel.getLoginName()) && "123456".equals(loginModel.getLoginPassword())) {
             ARouter.getInstance().build("/ui/main").withString("user_name", loginModel.getLoginName()).navigation();
             if (mILoginView != null) {
-                mILoginView.OnFinished();
+                mILoginView.onFinished();
             }
         } else {
             ToastUtil.showToast("用户名或者密码错误！");

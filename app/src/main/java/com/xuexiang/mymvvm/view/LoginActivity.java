@@ -39,7 +39,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
     }
 
     @Override
-    public void OnFinished() {
+    public void onFinished() {
         finish();
     }
 }

@@ -6,5 +6,8 @@ package com.xuexiang.mymvvm.view;
  */
 public interface ILoginView {
 
-    void OnFinished();
+    /**
+     * 界面退出
+     */
+    void onFinished();
 }
