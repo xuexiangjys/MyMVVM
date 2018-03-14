@@ -2,11 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
         <variable
             name="MainModel"
             type="com.xuexiang.mymvvm.viewmodel.MainModel" />
-
     </data>
 
     <LinearLayout

@@ -23,7 +23,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
     }
 
     /**
-     * 初始化控件
+     * 绑定ViewModel
      */
     @Override
     protected void bindViews() {
