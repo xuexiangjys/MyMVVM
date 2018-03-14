@@ -30,14 +30,6 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
         binding.setLoginModel(new LoginModel().attachV(this));
     }
 
-    /**
-     * 初始化监听
-     */
-    @Override
-    protected void initListener() {
-
-    }
-
     @Override
     public void onFinished() {
         finish();

@@ -16,20 +16,19 @@
 
 package com.xuexiang.mymvvm.base;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Toast;
+
+import com.xuexiang.mymvvm.util.ToastUtil;
 
 /**
+ * 基础BindingActivity
  * @author xuexiang
- * @date 2018/1/11 上午10:37
+ * @date 2018/3/14 下午2:24
  */
 public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatActivity {
 
@@ -41,15 +40,7 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
         binding = DataBindingUtil.setContentView(this, getLayoutId());
         initArgs();
         bindViews();
-        initListener();
-    }
-
-
-    /**
-     * 初始化参数
-     */
-    protected void initArgs() {
-
+        initListeners();
     }
 
     @Override
@@ -57,6 +48,7 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
         binding.unbind();
         super.onDestroy();
     }
+
 
     /**
      * 布局的资源id
@@ -66,26 +58,28 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
     @LayoutRes
     protected abstract int getLayoutId();
 
+
     /**
-     * 绑定控件
+     * 初始化参数
+     */
+    protected void initArgs() {
+
+    }
+
+    /**
+     * 绑定ViewModel
      */
     protected abstract void bindViews();
 
     /**
      * 初始化监听
      */
-    protected abstract void initListener();
+    protected void initListeners() {
 
-    protected <T extends View> T $(int id) {
-        return (T) findViewById(id);
-    }
-
-    protected void startActivity(Class<? extends Activity> clazz) {
-        startActivity(new Intent(this, clazz));
     }
 
 
     protected void toast(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        ToastUtil.showToast(msg);
     }
 }

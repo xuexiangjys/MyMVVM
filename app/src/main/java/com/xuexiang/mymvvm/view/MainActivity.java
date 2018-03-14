@@ -40,13 +40,5 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                 .setDisplayContent("欢迎来到MVVM的世界！"));
     }
 
-    /**
-     * 初始化监听
-     */
-    @Override
-    protected void initListener() {
-
-    }
-
 
 }
