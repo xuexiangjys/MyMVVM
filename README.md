@@ -255,7 +255,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
 
 ## 更多框架演示
 
-- MVP https://github.com/xuexiangjys/MyMVP
-- MVVM https://github.com/xuexiangjys/MyMVVM
-- Googel Architecture Components https://github.com/xuexiangjys/GoogleComponentsDemo
+- [MVP](https://github.com/xuexiangjys/MyMVP)
+- [MVVM](https://github.com/xuexiangjys/MyMVVM)
+- [Googel Architecture Components](https://github.com/xuexiangjys/GoogleComponentsDemo)
 
