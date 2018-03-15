@@ -7,6 +7,38 @@ ARouter + DataBinding + MVVM 的使用演示
 ## 演示效果（请star支持）
 ![](https://github.com/xuexiangjys/MyMVVM/blob/master/img/mvvm.gif)
 
+## 何为MVVM框架
+
+MVVM目前是主流的前端框架，它是Model-View-ViewModel的简写。它的演化过程：MVC-> MVP -> MVVM。
+
+MVVM与之前的MVC和MVP最大的不同之处就在于它使用了数据绑定技术，通过binding层，可以轻松地构建UI和渲染UI。
+
+在Android中：
+
+- Model：作为数据的来源,可以是本地存储数据（数据库、本地文件）、内存数据、网络请求数据等
+- View：相当于我们写的layout(XML）和Activity/Fragment文件
+- ViewModel：存放UI相关的数据和进行逻辑处理
+
+## 为何选择MVVM框架
+
+先让我们来总结一下MVC和MVP的优缺点，再来讨论MVVM。
+
+### MVC
+
+   在Android中，在项目不大的时候，我们绝大多数使用的就是这种。但是带来的问题就是，Activity既作为V，又作为C,等项目逐渐变大了之后，Activity便会变得异常地庞大和复杂，有时一个Activity可能会有上千行的代码，这对于维护而言简直就是噩梦。
+  
+### MVP
+    
+   当项目逐渐变得庞大和复杂之后，为了解决Activity的臃肿问题，我们才引入了P，P的出现就是为了解决Activity既作为V又作为C这种尴尬的情况，将所有的逻辑处理从Activity中剥离到P中进行处理。P作为V和M直接的中介者来进行调度。
+   
+   但是在实际的使用过程中，我发现，P虽然作为中介者来调度M和V，但是实际操作依然都是M和V进行，这就意味着，P会持有M和V的实例，M产生出数据后，还需要P去通知View进行UI渲染，而V产生事件后，又需要先通知P，然后P再更具情况去判断是否调用M去进行数据修改。实际上，如果项目变得非常大的时候，P也会像Activity一样变得越来越复杂。而且由于V存在生命周期，P也不具备感知V生命周期的能力。当页面变得非常多时，会产生无数多的P，那么项目的可维护性就大大降低。
+   
+### MVVM
+   
+   针对MVP使用过程中最大的痛点--“M产生出数据后，还需要P去通知View进行UI渲染，而V产生事件后，又需要先通知P，然后P再更具情况去判断是否调用M去进行数据修改”，Android引进了目前前端最火的MVVM框架来解决这一问题。通过MVVM，ViewModel实现了和View的绑定，当ViewModel中存放的来自Model的数据发生变化时，View会自动刷新UI，而View产生事件后，又会立即通知ViewModel进行处理。这样，View层就可以专心做UI渲染的工作，而ViewModel就可以专心做业务处理工作，也不会产生剪不断理还乱这种忧伤。
+   
+   但是MVVM对于XML布局的书写要求非常高，它实质是将之前MVP中M和P的关系转移到了XML布局中。但凡XML中有一处表达式拼写错误，排查问题来还是非常需要技术的。
+
 ## 如何使用DataBinding实现MVVM框架
 
 ### 1.在Android Studio上使用，需要在module级别的build.gradle上添加对DataBinding的支持：
