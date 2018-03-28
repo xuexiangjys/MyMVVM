@@ -51,6 +51,7 @@ android {
     }
 }
 ```
+    DataBinding详细使用请参见：https://blog.csdn.net/QDJdeveloper/article/details/62236309
 
 ### 2.编写ViewModel
 
